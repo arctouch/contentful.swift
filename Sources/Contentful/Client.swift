@@ -561,7 +561,7 @@ extension Client {
                 self.persistenceIntegration?.update(with: newSyncSpace)
                 mutableResult = .success(syncSpace)
             }
-            if let syncSpace = result.value, syncSpace.hasMorePages == true {
+            if syncSpace.hasMorePages == true {
                 self.sync(for: syncSpace, syncableTypes: syncableTypes, then: completion)
             } else {
                 completion(mutableResult)
